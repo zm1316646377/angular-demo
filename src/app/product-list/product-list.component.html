@@ -1,16 +1,13 @@
 <h2>Products</h2>
-<div *ngFor="let product of products">
-	<input [(ngModel)]="product.name">
-	<h3 [title]="product.name + ' details'">
-		{{ product.name }}
-	</h3>
+<div class="product-item" *ngFor="let product of products; let i = index">
+  <input [(ngModel)]="product.name">
+  
+  <p *ngIf="product.description">
+      Description: {{ product.description }}
+  </p>
+  <button (click)="btnClicked(product)">Click</button>
+
+  <a [routerLink]="['/products', product.proNo]">{{ product.name }}</a>
+
+  <app-product-alerts [product]="product" (notify)="onNotify()"></app-product-alerts>
 </div>
-
-
-
-
-<!-- 
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
--->
