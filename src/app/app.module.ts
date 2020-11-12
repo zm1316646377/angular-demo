@@ -1,10 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-// import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { TopBarComponent } from './top-bar/top-bar.component';
@@ -25,7 +25,8 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
     BrowserModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule, // 解决ngModel双向绑定
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
